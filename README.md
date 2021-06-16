@@ -1,2 +1,2 @@
-# TimeSheet
-To keep the time track of any employee
+# TimeSheetApp
+Timesheet app in flask

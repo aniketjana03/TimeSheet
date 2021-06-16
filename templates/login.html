@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %}
+Login
+{% endblock %}
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
+  <script type="text/javascript" src="{{ url_for('static', filename='styles.js') }}"></script>
+{% endblock %}
+{% block body %}
+<div class="boxed">
+  <div class="login-content">
+  <form action="/login" method="post">
+    <img src="https://lh3.googleusercontent.com/-rlmscJlD9hg/X2M9OfnMFhI/AAAAAAAACWo/hZRTQjji1V8qCVlX1igfuSsC49L94H6aACLcBGAsYHQ/image.png">
+    <h2 class="title">Welcome</h2>
+          <!--Email -->
+          <div class="input-div one">
+           <div class="i">
+                   <i class="fas fa-envelope"></i>
+           </div>
+
+           <div class="div">
+                   <input name="email" type="email" class="input" pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="email" required placeholder="Email ID">
+           </div>
+        </div>
+          <div class="input-div pass">
+             <div class="i">
+                <i class="fas fa-lock"></i>
+             </div>
+             <div class="div">
+                <input type="password" id="myInput" class="input" placeholder="Password" name="password">
+             </div>
+          </div>
+          <br>
+          <!-- An element to toggle between password visibility -->
+          <dd id="rr-element">
+             <label for="rr-1">
+              <input type="checkbox" id="switch" class="checkbox" onclick="myFunction()" />
+              <label for="switch" class="toggle"><br><br> Show Password
+              </label></label>
+          </dd>
+    <!-- Login button -->
+          <input type="submit" class="btn" value="Login">
+
+    <p align="center"><h3>New User?</h3></p>
+        <a href="{{ url_for('register') }}">
+      <p align="center">Register here</p>
+      </a>
+  </form>
+  </div>
+</div>
+{% endblock %}

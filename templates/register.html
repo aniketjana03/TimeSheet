@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+{% block title %}
+Register
+{% endblock %}
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="/static/registerstyle.css">
+  <script type="text/javascript" src="{{ url_for('static', filename='registerjs.js') }}"></script>
+{% endblock %}
+{% block body %}
+<div class="boxed">
+  <div class="login-content">
+  <form action="/register" method="post">
+      <h2 class="title">Register</h2>
+  <!--First Name  -->
+         <div class="input-div one">
+            <div class="i">
+                    <i class="fas fa-user"></i>
+            </div>
+
+            <div class="div">
+                    <input type="text" class="input" required placeholder="First Name" name="first">
+
+            </div>
+         </div>
+  <div class="input-div one">
+            <div class="i">
+                    <i class="fas fa-user"></i>
+            </div>
+
+            <div class="div">
+                    <input type="text" class="input" required placeholder="Last Name" name="last">
+            </div>
+         </div>
+  <!--Email -->
+  <div class="input-div one">
+            <div class="i">
+                    <i class="fas fa-envelope"></i>
+            </div>
+
+            <div class="div">
+                    <input type="email" class="input" pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="email" required placeholder="Email ID" name="email">
+            </div>
+         </div>
+  <!-- Password -->
+         <div class="input-div pass">
+            <div class="i">
+                 <i class="fas fa-lock"></i>
+            </div>
+            <div class="div">
+                 <input type="password" onchange="check_pass()" id="myInput" class="input" title="Must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters" required placeholder="Password" name="password">
+         </div>
+      </div>
+
+  <!-- Confirm Password -->
+  <div class="input-div pass">
+  <div class="i">
+       <i class="fas fa-lock"></i>
+  </div>
+  <div class="div">
+       <input type="password" onchange="check_pass()" id="myInput2" class="input" title="Must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters" required placeholder="Confirm Password" name="confirm">
+  </div>
+  </div>
+  <br>
+  <!-- An element to toggle between password visibility -->
+  <dd id="rr-element">
+     <label for="rr-1">
+      <input type="checkbox" id="switch" class="checkbox" onclick="myFunction()" />
+      <label for="switch" class="toggle"><br><br> Show Password
+      </label></label>
+  </dd>
+  <!-- Birthday -->
+  <div class="input-div pass">
+            <div class="i">
+                <br>
+                 <i class="fas fa-birthday-cake"></i>
+            </div>
+            <div class="div">
+                 <h5></h5>
+                 <input type="date" id="myInput" class="input" name="dob" required placeholder="Enter D.O.B.">
+         </div>
+      </div>
+
+       <br/>
+
+  <!-- Login button -->
+      <input type="submit" class="btn" value="Register" id="submit" disabled>
+      <h3>Already a User?<h3>
+      <a href="{{ url_for('login') }}">
+      <p align="center">Login here</p></a>
+      <h4 id="password-error"></h3>
+  </form>
+</div>
+</div>
+{% endblock %}
