@@ -5,9 +5,9 @@ from boto.s3.connection import S3Connection
 
 class MakeDB:
     def __init__(self):
-        host = os.environ.get('127.0.0.1')
-        user = os.environ.get('root')
-        password = os.environ.get('root')
+        host = '127.0.0.1'
+        user = 'root'
+        password ='root'
 
         stmts = parse_sql('final.sql')
         self.con = pymysql.connect(host=host, user=user, password=password,
